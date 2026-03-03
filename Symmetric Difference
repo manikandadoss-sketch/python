@@ -1,0 +1,6 @@
+msize = int(input())
+m = set(map(int, input().split(" ")))
+nsize = int(input())
+n = set(map(int, input().split(" ")))
+
+print(*sorted(m^n), sep='\n')
