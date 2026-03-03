@@ -1,0 +1,21 @@
+n = int(input())
+
+od = OrderedDict()
+
+for _ in range(n):
+    
+    *name_parts, item_price = input().split(' ')
+    
+    item_name = " ".join(name_parts)
+    
+    if item_name in od:
+        
+        od[item_name] += int(item_price)
+        
+    else:
+        
+        od[item_name] = int(item_price)
+
+for name, total in od.items():
+    
+    print(f'{name} {total}'
