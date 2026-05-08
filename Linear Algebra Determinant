@@ -1,0 +1,6 @@
+import numpy.linalg as nl
+n = int(input())
+arr = []
+for _ in range(n):
+    arr.append(list(map(float, input().split())))
+print(round(nl.det(arr),2))
