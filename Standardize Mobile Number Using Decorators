@@ -1,0 +1,23 @@
+def wrapper(f):
+    def fun(l):
+        # Extract the last 10 digits and format them as +91 xxxxx xxxxx
+        standardized_numbers = []
+        for num in l:
+            clean_num = num[-10:]  # Gets the last 10 digits
+            formatted_num = "+91 " + clean_num[:5] + " " + clean_num[5:]
+            standardized_numbers.append(formatted_num)
+        
+        # Pass the newly formatted list to the original sorting function
+        return f(standardized_numbers)
+    return fun
+
+
+@wrapper
+def sort_phone(l):
+    print(*sorted(l), sep='\n')
+
+if __name__ == '__main__':
+    l = [input() for _ in range(int(input()))]
+    sort_phone(l) 
+
+
