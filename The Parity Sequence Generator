@@ -1,0 +1,18 @@
+def evenodd(q: str, n: int) -> str:
+    if q == 'odd':
+        start = 1
+    if q == 'even':
+        start = 0
+    
+    res = []
+    for i in range(start, n * 2, 2):
+        res.append(i)
+    return res 
+
+if __name__=='__main__':
+    n = int(input())
+    for i in range(n):
+        L = list(map(str, input().strip().split()))[:2]
+        numbers = evenodd(L[0].lower(), int(L[1]))
+        for j in numbers:
+            print(j)
