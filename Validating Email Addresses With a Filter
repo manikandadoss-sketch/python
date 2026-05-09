@@ -1,0 +1,27 @@
+import re
+def fun(s):
+    try:
+        
+        username, rest = s.split('@')
+        
+        website, extension = rest.split('.')
+    except ValueError:
+        
+        return False
+
+  
+    username_valid = all(c.isalnum() or c in ['-', '_'] for c in username) and len(username) > 0
+    
+    
+    website_valid = website.isalnum()
+    
+ 
+    extension_valid = extension.isalpha() and len(extension) <= 3
+    
+    return username_valid and website_valid and extension_valid
+def filter_mail(emails):
+    return list(filter(fun, emails))
+
+if __name__ == '__main__':
+    n = int(input())
+    emails = []
